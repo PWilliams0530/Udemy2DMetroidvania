@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+enum PlayerStates {MOVE, SWORD}
+var CurrentState = PlayerStates.MOVE
+
 var speed = 200.0
 #delta = 60 frames per second
 var gravity = 20
@@ -10,7 +13,13 @@ func _ready():
 	$Sword/CollisionShape2D.disabled = true
 
 func _physics_process(delta):
-	Move(delta)
+	match CurrentState:
+		PlayerStates.MOVE:
+			Move(delta)
+		PlayerStates.SWORD:
+			Sword()
+		
+	
 	velocity.y += gravity
 	move_and_slide()
 
@@ -55,7 +64,7 @@ func Move(delta):
 		$anim.play("Fall")
 		
 	if Input.is_action_just_pressed("ui_sword"):
-		Sword()
+		CurrentState = PlayerStates.SWORD
 		
 func Jump():
 	$anim.play("Jump")
@@ -63,3 +72,6 @@ func Jump():
 
 func Sword():
 	$anim.play("Sword")
+
+func OnStateFinished():
+	CurrentState = PlayerStates.MOVE
