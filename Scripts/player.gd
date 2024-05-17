@@ -4,6 +4,7 @@ var speed = 200.0
 #delta = 60 frames per second
 var gravity = 20
 var jump = 400
+var pressed = 2
 
 func _physics_process(delta):
 	Move(delta)
@@ -26,9 +27,28 @@ func Move(delta):
 	if movement == 0.0:
 		velocity.x = 0.0
 		$anim.play("Idle")
+		
 	if Input.is_action_just_pressed("ui_jump"):
+		pressed -= 1
+		
+	if is_on_floor():
+		pressed = 2
+		
+	if is_on_floor() && Input.is_action_just_pressed("ui_jump"):
 		Jump()
+		
+	if !is_on_floor() && Input.is_action_just_pressed("ui_jump") && pressed >=1:
+		Jump()
+		
+	if pressed <= 0:
+		velocity.y = velocity.y
+		
+	if !is_on_floor():
 		$anim.play("Jump")
 		
+	if !is_on_floor() && velocity.y > 10:
+		$anim.play("Fall")
+		
 func Jump():
-		velocity.y -= jump
+	$anim.play("Jump")
+	velocity.y -= jump
