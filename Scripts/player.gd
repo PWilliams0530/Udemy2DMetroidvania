@@ -2,10 +2,12 @@ extends CharacterBody2D
 
 var speed = 200.0
 #delta = 60 frames per second
+var gravity = 20
 
 func _physics_process(delta):
 	Move(delta)
 	
+	velocity.y += gravity
 	move_and_slide()
 
 func Move(delta):
