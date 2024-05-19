@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b57olyjlce161"]
+[gd_scene load_steps=14 format=3 uid="uid://b57olyjlce161"]
 
 [ext_resource type="Texture2D" uid="uid://bicvpqfis3ift" path="res://Player2.png" id="1_7gjod"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_rqneo"]
@@ -168,6 +168,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4efvy"]
 size = Vector2(20, 31)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0l247"]
+radius = 17.0294
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 3
@@ -196,3 +199,11 @@ position = Vector2(25, 0)
 shape = SubResource("RectangleShape2D_4efvy")
 disabled = true
 debug_color = Color(0.760784, 0.0666667, 0.207843, 0.419608)
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_0l247")
+debug_color = Color(0.87451, 0.227451, 0.654902, 0.419608)
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
