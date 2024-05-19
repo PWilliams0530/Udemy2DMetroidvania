@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpwmgecl04hsm"]
+[gd_scene load_steps=6 format=3 uid="uid://dpwmgecl04hsm"]
 
 [ext_resource type="PackedScene" uid="uid://b57olyjlce161" path="res://Scenes/player/player.tscn" id="1_j7evd"]
 [ext_resource type="Texture2D" uid="uid://up0mtkftsoam" path="res://Sprites/Ground/ground-tileset.png" id="2_4cb3p"]
+[ext_resource type="PackedScene" uid="uid://2cfqehyjlb30" path="res://Scenes/interactable/crate.tscn" id="3_ccljn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yrbf4"]
 texture = ExtResource("2_4cb3p")
@@ -318,3 +319,6 @@ position = Vector2(191, 97)
 tile_set = SubResource("TileSet_ub46l")
 format = 2
 layer_0/tile_data = PackedInt32Array(458760, 0, 0, 458761, 65536, 0, 458762, 65536, 0, 458763, 65536, 0, 458764, 65536, 0, 458765, 65536, 0, 458766, 65536, 0, 458767, 131072, 0, 458768, 196608, 0, 524304, 196608, 1, 589840, 196608, 1, 655376, 196608, 3, 655375, 65536, 3, 655374, 65536, 3, 655373, 65536, 3, 655372, 65536, 3, 655371, 65536, 3, 655370, 65536, 3, 655369, 131072, 3, 655368, 0, 3, 524296, 0, 1, 589832, 0, 1, 524297, 65536, 1, 524298, 65536, 1, 524299, 65536, 1, 524300, 65536, 1, 524301, 65536, 1, 524302, 65536, 1, 524303, 65536, 1, 589839, 65536, 1, 589838, 65536, 1, 589837, 65536, 1, 589836, 65536, 1, 589835, 65536, 1, 589834, 65536, 1, 589833, 65536, 1, 458771, 0, 1, 458772, 131072, 1, 458773, 131072, 1, 458774, 65536, 1, 458775, 131072, 1, 458776, 196608, 2, 524312, 196608, 2, 589848, 196608, 1, 655384, 196608, 3, 655383, 65536, 3, 655382, 131072, 3, 655381, 65536, 3, 655380, 131072, 3, 655379, 0, 3, 589843, 0, 1, 524307, 0, 1, 589846, 131072, 1, 589847, 65536, 1, 393240, 196608, 0, 524311, 65536, 2, 524310, 131072, 2, 589845, 131072, 1, 524309, 65536, 1, 524308, 65536, 1, 589844, 131072, 1, 393235, 0, 0, 393236, 65536, 0, 393237, 131072, 0, 393238, 131072, 0, 393239, 65536, 0)
+
+[node name="Crate" parent="." instance=ExtResource("3_ccljn")]
+position = Vector2(232, 99)
