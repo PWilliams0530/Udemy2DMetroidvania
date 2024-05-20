@@ -36,5 +36,4 @@ func floor_detect():
 	
 func _on_hitbox_area_entered(area):
 	if area.name == "Sword":
-		print(health)
 		health -= 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dpwmgecl04hsm"]
+[gd_scene load_steps=17 format=3 uid="uid://dpwmgecl04hsm"]
 
 [ext_resource type="PackedScene" uid="uid://b57olyjlce161" path="res://Scenes/player/player.tscn" id="1_j7evd"]
 [ext_resource type="Texture2D" uid="uid://up0mtkftsoam" path="res://Sprites/Ground/ground-tileset.png" id="2_4cb3p"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dcbtrufrywtlv" path="res://Sprites/World 1/grass-ground.png" id="11_oh4v4"]
 [ext_resource type="Texture2D" uid="uid://dkqh8gg70r00x" path="res://Sprites/World 1/Foreground.png" id="12_vt2u2"]
 [ext_resource type="PackedScene" uid="uid://b06i5e0qsmld8" path="res://Scenes/enemies/enemy.tscn" id="13_l1vwa"]
+[ext_resource type="PackedScene" uid="uid://cejc68kncl8ha" path="res://Scenes/UI/gui.tscn" id="14_0hb65"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yrbf4"]
 texture = ExtResource("2_4cb3p")
@@ -388,3 +389,5 @@ centered = false
 
 [node name="Enemy" parent="." instance=ExtResource("13_l1vwa")]
 position = Vector2(246, 80)
+
+[node name="GUI" parent="." instance=ExtResource("14_0hb65")]

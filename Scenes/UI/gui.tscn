@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://cejc68kncl8ha"]
+
+[ext_resource type="Script" path="res://Scripts/GUI.gd" id="1_20fnj"]
+[ext_resource type="Texture2D" uid="uid://bcq3803u8y8e1" path="res://Sprites/UI/PlayerHead1.png" id="2_qjk1q"]
+[ext_resource type="Texture2D" uid="uid://bql52ygj4c1o0" path="res://Sprites/Interactables/coin.png" id="3_ws6tf"]
+[ext_resource type="Texture2D" uid="uid://d3djj42n3fyod" path="res://Sprites/UI/HeartSpriteSheetl.png" id="4_4piaw"]
+
+[sub_resource type="Animation" id="Animation_7dw0m"]
+resource_name = "coin"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3, 4, 5, 6, 7, 7, 7, 7]
+}
+
+[sub_resource type="Animation" id="Animation_hnma6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tu80c"]
+_data = {
+"RESET": SubResource("Animation_hnma6"),
+"coin": SubResource("Animation_7dw0m")
+}
+
+[node name="GUI" type="CanvasLayer"]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+script = ExtResource("1_20fnj")
+
+[node name="PlayerLife" type="Sprite2D" parent="."]
+position = Vector2(23, 12)
+texture = ExtResource("2_qjk1q")
+
+[node name="coinLogo" type="Sprite2D" parent="."]
+position = Vector2(43, 33)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_ws6tf")
+hframes = 8
+
+[node name="anim" type="AnimationPlayer" parent="coinLogo"]
+libraries = {
+"": SubResource("AnimationLibrary_tu80c")
+}
+autoplay = "coin"
+
+[node name="Heart" type="Sprite2D" parent="."]
+position = Vector2(43, 9)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_4piaw")
+hframes = 5
+
+[node name="coinText" type="Label" parent="."]
+offset_left = 47.5
+offset_top = 24.5
+offset_right = 80.5
+offset_bottom = 47.5

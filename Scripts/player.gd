@@ -84,7 +84,7 @@ func Dead():
 	await $anim.animation_finished
 	if get_tree():
 		get_tree().reload_current_scene()
-	Globals.player_lives = 5
+	Globals.player_lives = 4
 	OnStateFinished()
 
 func OnStateFinished():

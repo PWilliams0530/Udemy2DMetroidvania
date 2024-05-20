@@ -1,6 +1,6 @@
 extends Node
 
-var player_lives = 5
+var player_lives = 12
 
 
 # Called when the node enters the scene tree for the first time.
