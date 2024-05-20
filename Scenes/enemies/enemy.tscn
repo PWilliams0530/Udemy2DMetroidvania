@@ -1,10 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://b06i5e0qsmld8"]
+[gd_scene load_steps=11 format=3 uid="uid://b06i5e0qsmld8"]
 
 [ext_resource type="Texture2D" uid="uid://cavlf2p64ow2x" path="res://Sprites/Enemies/Enemy2.png" id="1_d7a6w"]
 [ext_resource type="Script" path="res://Scenes/enemies/enemy.gd" id="1_iora2"]
+[ext_resource type="Shader" path="res://Shaders/hurt.gdshader" id="2_686lp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tj0so"]
 size = Vector2(12.2837, 6.65421)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pi6bi"]
+shader = ExtResource("2_686lp")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_modifier = 0.0
 
 [sub_resource type="Animation" id="Animation_ih24a"]
 resource_name = "Dead"
@@ -131,6 +137,7 @@ position = Vector2(-0.5, 12.8572)
 shape = SubResource("RectangleShape2D_tj0so")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_pi6bi")
 texture = ExtResource("1_d7a6w")
 hframes = 7
 vframes = 2

@@ -89,10 +89,16 @@ func Dead():
 
 func OnStateFinished():
 	CurrentState = PlayerStates.MOVE
+	
+func flash():
+	$Sprite2D.material.set_shader_parameter("flash_modifier",1)
+	await (get_tree().create_timer(0.3)).timeout
+	$Sprite2D.material.set_shader_parameter("flash_modifier",0)
 
 
 func _on_hitbox_body_entered(body):
 	if body.name == "Enemy":
+		flash()
 		Globals.player_lives -= 1
 	if Globals.player_lives <= 0:
 		CurrentState = PlayerStates.DEAD
