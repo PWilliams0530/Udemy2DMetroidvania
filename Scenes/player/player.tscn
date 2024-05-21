@@ -178,7 +178,6 @@ size = Vector2(20, 31)
 radius = 17.0294
 
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_rqneo")
 
