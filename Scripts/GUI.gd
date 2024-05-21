@@ -13,6 +13,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	$coinText.text = var_to_str(Globals.player_coin)
+	
 	for heart in $Heart.get_children():
 		var index = heart.get_index()
 		
